@@ -7,6 +7,13 @@ import { arcade } from './arcade';
 import { world } from './worlds';
 import { initState, type SimContext } from './simulation';
 import { popupNames } from './popups';
+
+function seededRandom(seed: number) {
+  return () => {
+    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+    return seed / 4294967296;
+  };
+}
 describe('event registry', () => {
   it('registers 294 unique, reversible events', () => {
     expect(events).toHaveLength(294);
@@ -28,8 +35,9 @@ describe('event registry', () => {
   });
   it('excludes recent and incompatible events', () => {
     const recent: number[] = [];
+    const random = seededRandom(12345);
     for (let i = 0; i < 2000; i++) {
-      const event = selectEvent(i % 200, recent, [96]);
+      const event = selectEvent(i % 200, recent, [96], random);
       expect(event.minLevel).toBeLessThanOrEqual(levelFor(i % 200));
       expect(event.incompatible).not.toContain(96);
       expect(event.id).not.toBe(96);
@@ -38,9 +46,15 @@ describe('event registry', () => {
     }
   });
   it('makes every rarity and event reachable at maximum level', () => {
-    const seen = new Set<number>();
-    for (let i = 0; i < 10000; i++) seen.add(selectEvent(151, [], []).id);
-    expect(seen.size).toBe(294);
+    // Exercise each rarity's probability range, with one remaining discovery.
+    // Random sampling cannot guarantee that every rare event appears in CI.
+    const rarityRoll = { common: 0.275, uncommon: 0.675, rare: 0.86, epic: 0.95, legendary: 0.99 };
+    for (const target of events) {
+      let draws = 0;
+      const random = () => (draws++ === 0 ? rarityRoll[target.rarity] : 0);
+      const discovered = events.filter((event) => event.id !== target.id).map((event) => event.id);
+      expect(selectEvent(151, [], [], random, discovered).id).toBe(target.id);
+    }
   });
 });
 describe('150-event expansion', () => {
@@ -48,8 +62,9 @@ describe('150-event expansion', () => {
     expect(popupNames).toHaveLength(24);
     expect(events.filter((e) => e.category === 'Popup')).toHaveLength(24);
     const counts = { popup: 0, interactive: 0, spectacle: 0 };
+    const random = seededRandom(67890);
     for (let i = 0; i < 4000; i++) {
-      const e = selectEvent(151, [], []);
+      const e = selectEvent(151, [], [], random);
       const kind =
         e.category === 'Popup' || e.category === 'System'
           ? 'popup'
@@ -92,8 +107,9 @@ describe('150-event expansion', () => {
     }
   });
   it('cools down a recently played mechanic family', () => {
+    const random = seededRandom(24680);
     for (let i = 0; i < 300; i++) {
-      const e = selectEvent(151, [121], []);
+      const e = selectEvent(151, [121], [], random);
       expect(e.family).not.toBe('expansion-whack');
     }
   });
