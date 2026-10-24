@@ -4,6 +4,8 @@
 
 **You had one job. Naturally, you pressed it.**
 
+### [Play The Chaos Button →](https://albertinothecoder.github.io/The-Chaos-Button/)
+
 [![Check & Build](https://github.com/AlbertinoTheCoder/The-Chaos-Button/actions/workflows/ci.yml/badge.svg)](https://github.com/AlbertinoTheCoder/The-Chaos-Button/actions/workflows/ci.yml)
 
 <img alt="294 events" src="https://img.shields.io/badge/294-events-f35142?style=flat-square&labelColor=202127" />
@@ -62,6 +64,8 @@ Open the local URL printed by Vite, usually **http://127.0.0.1:5173/**. Press th
 | `npm run format:check` | Check consistent source and documentation formatting.                            |
 
 All fonts and game assets are bundled. The production build is static and can be served by a static HTTP host. The game makes no external requests during play.
+
+GitHub Pages automatically deploys successful pushes to `main` after formatting checks, tests, and the production build pass. Pull requests run checks without publishing. Relative asset paths keep the game, favicon, and bundled fonts working under the repository URL.
 
 ## How to play
 
