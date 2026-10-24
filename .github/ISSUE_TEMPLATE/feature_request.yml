@@ -1,0 +1,17 @@
+name: Propose a bad idea
+description: Suggest a new event, mechanic, or improvement.
+title: '[Idea] '
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What should happen when someone presses the button?
+      description: Describe visible behavior and interactions, rather than just a funny message.
+    validations:
+      required: true
+  - type: textarea
+    id: recovery
+    attributes:
+      label: How does the player interact with it or recover?
+      description: Consider mouse, keyboard, touch, close controls, and Restore Website.

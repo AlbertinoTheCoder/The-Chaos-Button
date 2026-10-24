@@ -1,0 +1,338 @@
+.absurd-popup {
+  position: absolute;
+  width: 365px;
+  max-width: 90vw;
+  max-height: 74vh;
+  overflow: auto;
+  pointer-events: auto;
+  background: #20232c;
+  border: 1px solid #85716d;
+  border-radius: 7px;
+  box-shadow: 0 15px 75px #0009;
+  animation: pop 0.2s;
+}
+.absurd-popup > .windowbar {
+  background: #30323e;
+  padding: 10px 14px;
+  color: #b5a5a1;
+  font-size: 7px;
+  letter-spacing: 0.6px;
+}
+.popup-body {
+  padding: 22px;
+}
+.popup-emblem {
+  display: grid;
+  place-items: center;
+  border: 1px solid #aa8263;
+  color: #deb184;
+  background: #deb18412;
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  font: 24px var(--display);
+  margin-bottom: 16px;
+}
+.popup-body h2 {
+  font: 600 27px/1.1 var(--display);
+  margin-bottom: 13px;
+}
+.popup-body p {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #b9b0bd;
+}
+.popup-body small {
+  display: block;
+  font: 8px/1.8 var(--mono);
+  color: #958a9a;
+  margin-top: 12px;
+}
+.popup-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+.popup-actions button,
+.popup-dismiss,
+.popup-body form button {
+  font-size: 10px;
+  line-height: 1.6;
+  padding: 9px 12px;
+  border: 1px solid #75606b;
+  background: #3a303e;
+  border-radius: 4px;
+}
+.popup-actions button:hover,
+.popup-dismiss:hover {
+  border-color: #e3a18b;
+  background: #4c3542;
+}
+.popup-plan {
+  padding: 15px;
+  margin-top: 15px;
+  background: #181b23;
+  border: 1px solid #544249;
+  border-radius: 6px;
+}
+.popup-plan > strong {
+  font: 30px var(--display);
+  color: #dfbd89;
+}
+.popup-plan > span {
+  font-size: 9px;
+  color: #a599a7;
+  margin-left: 7px;
+}
+.popup-plan ul {
+  padding-left: 16px;
+  margin: 12px 0 0;
+  font-size: 10px;
+  line-height: 2;
+  color: #b4a9b7;
+}
+.popup-body code {
+  display: block;
+  font: 8px var(--mono);
+  padding: 12px;
+  margin-top: 12px;
+  background: #141720;
+  color: #bd997c;
+}
+.nested-error {
+  border: 1px solid #916062;
+  background: #442d3844;
+  padding: 10px;
+  font-size: 9px;
+  margin-top: 9px;
+  transform: translateX(5px);
+}
+.news-anchor {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 18px;
+  padding: 18px;
+  background: linear-gradient(140deg, #41445a, #272e43);
+  border: 1px solid #72758855;
+  border-radius: 5px;
+}
+.news-anchor > span {
+  font-size: 60px;
+  color: #c3c8d6;
+}
+.news-anchor b {
+  display: block;
+  background: #d95d50;
+  color: #fff;
+  padding: 3px 6px;
+  font: 8px var(--mono);
+  width: max-content;
+  margin-bottom: 10px;
+}
+.news-anchor strong {
+  font: 500 20px var(--display);
+  line-height: 1.3;
+  color: #e3d9d9;
+}
+.news-ticker {
+  background: #ad4538;
+  padding: 7px 0;
+  margin: 10px 0 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  font: 8px var(--mono);
+}
+.news-ticker > span {
+  display: inline-block;
+  animation: news-crawl 14s linear infinite;
+}
+.notification-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 15px;
+  background: #151a22;
+  border-left: 2px solid #91acb5;
+  margin: 15px 0;
+}
+.notification-preview b {
+  font: 8px var(--mono);
+  color: #b2bfc5;
+}
+.notification-preview span {
+  font-size: 10px;
+  color: #9f95a8;
+}
+.popup-body form {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 18px 0 8px;
+}
+.popup-body form input {
+  width: 100%;
+  font-size: 11px;
+}
+.permission-list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin: 18px 0;
+}
+.permission-list label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  color: #c2b8c6;
+}
+.permission-list input {
+  accent-color: #dc957e;
+}
+.fake-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+.fake-chat > div:not(.popup-actions) {
+  background: #303c4b;
+  border: 1px solid #586b8033;
+  border-radius: 8px 8px 8px 0;
+  padding: 9px 12px;
+  max-width: 90%;
+  align-self: flex-start;
+}
+.fake-chat .chat-right {
+  align-self: flex-end !important;
+  border-radius: 8px 8px 0 8px !important;
+  background: #473545 !important;
+}
+.fake-chat small {
+  margin: 0 0 4px;
+  font-size: 6px;
+  color: #dfad91;
+}
+.fake-chat p {
+  font-size: 10px;
+}
+.invoice-lines {
+  font-size: 10px;
+  margin-top: 18px;
+  border-top: 1px dashed #7e6b69;
+  border-bottom: 1px dashed #7e6b69;
+  padding: 12px 0;
+}
+.invoice-lines > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  color: #b7acb8;
+}
+.invoice-lines b {
+  white-space: nowrap;
+  font: 9px var(--mono);
+  color: #d7b593;
+}
+.invoice-lines > strong {
+  display: block;
+  color: #e1c38d;
+  font: 10px var(--mono);
+  line-height: 1.8;
+  margin: 12px 0;
+}
+.survey-stars {
+  display: flex;
+  gap: 7px;
+  margin: 18px 0;
+}
+.survey-stars button {
+  font-size: 32px;
+  color: #69616c;
+  padding: 0;
+}
+.survey-stars button.chosen {
+  color: #e3b969;
+  text-shadow: 0 0 20px #e3b96944;
+}
+.tiny-terms {
+  padding: 16px;
+  line-height: 1.8;
+  color: #ada0b2;
+  border: 1px solid #554b60;
+  background: #181922;
+  max-height: 160px;
+  overflow: auto;
+  transition: font-size 0.3s;
+}
+.meeting-guests {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 38px;
+  letter-spacing: 12px;
+  color: #c2b8af;
+}
+.meeting-guests span {
+  display: block;
+  margin-top: 15px;
+  font: 7px var(--mono);
+  color: #deac8a;
+  letter-spacing: 0.5px;
+}
+.popup-body .popup-reply {
+  background: #a4836320;
+  border-left: 2px solid #b48f6c;
+  padding: 10px;
+  margin-top: 17px;
+  font: 9px/1.8 var(--mono);
+  color: #ddc5ad;
+}
+.popup-update progress {
+  accent-color: #b4caa7;
+  margin: 15px 0;
+}
+.popup-update .loading-ring {
+  margin: 20px auto;
+}
+@keyframes news-crawl {
+  from {
+    transform: translateX(20%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@media (max-width: 760px) {
+  .absurd-popup {
+    left: 5% !important;
+    top: 16% !important;
+    max-height: 70vh;
+    width: 90vw;
+  }
+  .absurd-popup > .windowbar {
+    font-size: 6px;
+  }
+  .popup-body {
+    padding: 18px;
+  }
+  .popup-body h2 {
+    font-size: 25px;
+  }
+  .popup-actions button {
+    font-size: 9px;
+  }
+  .popup-body p {
+    font-size: 10px;
+  }
+  .news-anchor strong {
+    font-size: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .news-ticker > span {
+    animation: none;
+  }
+}

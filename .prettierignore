@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.npm-cache/
+.playwright-mcp/
+test-results/
+package-lock.json
+docs/assets/
+docs/EVENTS.md
+*.tsbuildinfo

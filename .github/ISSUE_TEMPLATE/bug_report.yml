@@ -1,0 +1,31 @@
+name: Report an anomaly
+description: A real bug, rather than an intentional disaster.
+title: '[Bug] '
+labels: [bug]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What went wrong?
+      description: Include the event name or number if you can find it in the incident log.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How can we reproduce it?
+      placeholder: '1. Open the event collection…'
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      placeholder: Chrome on Windows, Safari on iPhone, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots or additional details
+      description: Avoid including personal information or your full localStorage data.

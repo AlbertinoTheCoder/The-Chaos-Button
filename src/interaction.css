@@ -1,0 +1,113 @@
+/* Holding and dragging are game inputs, not browser text-selection gestures. */
+#root {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+#root input,
+#root textarea,
+#root [contenteditable='true'] {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+
+#root img,
+#root a,
+#root button,
+#root canvas,
+#root svg {
+  -webkit-user-drag: none;
+}
+
+.fake-window > .windowbar,
+.absurd-popup > .windowbar,
+.expansion-scene > .windowbar,
+.wildcard > .windowbar,
+.gallery > .windowbar,
+.challenge > .windowbar {
+  cursor: grab;
+  touch-action: none;
+}
+
+[data-dragging='true'] > .windowbar {
+  cursor: grabbing;
+}
+
+.windowbar > .minigame-replay {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  white-space: nowrap;
+  padding: 7px 9px;
+  border: 1px solid #927a62;
+  border-radius: 4px;
+  background: #332d34;
+  color: #dfc298;
+  font: 8px var(--mono);
+  cursor: pointer;
+}
+
+.windowbar > .minigame-replay:hover {
+  background: #493b40;
+  border-color: #d4ab7a;
+}
+.expansion-result > .minigame-close,
+.game-result > .minigame-close {
+  min-width: 125px;
+  padding: 12px 20px;
+  border-color: #c19b66;
+  color: #f2e5d3;
+}
+.challenge > .game-result {
+  top: 55px;
+}
+.challenge-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+.challenge-footer button {
+  font: 8px var(--mono);
+  color: #c7ae96;
+  padding: 5px 0;
+}
+.music-now-playing {
+  padding: 18px;
+  margin-top: 22px;
+  border: 1px solid #71574f;
+  border-radius: 6px;
+  background: #ba735a0b;
+}
+.music-now-playing > span {
+  display: block;
+  font: 7px var(--mono);
+  letter-spacing: 1px;
+  color: #cba887;
+}
+.music-now-playing > strong {
+  display: block;
+  margin: 9px 0;
+  font: 600 25px var(--display);
+  color: #e2d2c6;
+}
+.music-now-playing > small {
+  font: 8px var(--mono);
+  color: #ad9eab;
+}
+.settings .music-now-playing > p {
+  font-size: 10px;
+  margin: 12px 0 0;
+}
+@media (max-width: 760px) {
+  .windowbar > .minigame-replay {
+    font-size: 7px;
+    padding: 7px;
+  }
+  .challenge > .windowbar > span,
+  .expansion-scene > .windowbar > span {
+    max-width: 55%;
+    line-height: 1.7;
+  }
+}
